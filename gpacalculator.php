@@ -3,6 +3,7 @@
  * MyWikis
  * GPA Calculator (Weighted)
  * @author Jeffrey Wang
+ * @contributors CJ Duffee
  * @license GNU License 2.0 (Because GitHub forced me to do so)
 */
 ?>
@@ -20,35 +21,31 @@ if ( $_REQUEST['submit'] ) {
 	$divisor = $_REQUEST['numberofclasses'];
 	for ( $i = 1; $i <= 7; $i++ ) {
 		$dividendpregpa = "" + $_REQUEST[answers . $i];
-		//$dividend += $_REQUEST[exam . $i] / 7;
-		
-		
 		if ( $dividendpregpa > 100) {
 			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
-			$dividendpregpa=100;
+			$dividendpregpa = 100;
 		}
 		if ( $dividendpregpa < 0) {
 			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
-			$dividendpregpa=0;
+			$dividendpregpa = 0;
 		}
 		
-		//Failing does not set GPA to Zero!!! 61 would be 0.1
-		$dividendpregpa-=60; //100 will be 40
-		if($dividendprega<0) //makes so no negative Grades
-		{
-			$dividendprega=0;
+		// Failing does not set GPA to zero! 61 would be 0.1
+		$dividendpregpa -= 60; // 100 will be 40
+		if ($dividendprega < 0) { // makes so no negative Grades
+			$dividendprega = 0;
 		}
 		
-		$gpaForClass=$dividendprega/10;
+		$gpaForClass = $dividendprega / 10;
 		
 		if ( $_REQUEST[gpa . $i] == 5 ) { 
-			$gpaForClass+=1.0;
+			$gpaForClass += 1.0;
 		}
 		if ( $_REQUEST[gpa . $i] == 6 ) {
-			$gpaForClass+=2.0;
+			$gpaForClass += 2.0;
 		}
 		
-		$dividend+=$gpaForClass;
+		$dividend += $gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
 	?>
