@@ -32,11 +32,11 @@ if ( $_REQUEST['submit'] ) {
 		
 		// Failing does not set GPA to zero! 61 would be 0.1
 		$dividendpregpa -= 60; // 100 will be 40
-		if ($dividendprega < 0) { // makes so no negative Grades
-			$dividendprega = 0;
+		if ($dividendpregpa < 0) { // makes so no negative Grades
+			$dividendpregpa = 0;
 		}
 		
-		$gpaForClass = $dividendprega / 10;
+		$gpaForClass = $dividendpregpa / 10;
 		
 		if ( $_REQUEST[gpa . $i] == 5 ) { 
 			$gpaForClass += 1.0;
