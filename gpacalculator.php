@@ -172,7 +172,7 @@ if ( $_REQUEST['submit'] ) {
   <p>by Jeffrey Wang for MyWikis</p>
   <hr />
   <form method="post" action="gpacalculator.php">
-  <input type="number" name="numofclasses" value="7" />
+  How many classes do you have?: <input type="number" name="numofclasses" value="7" /><br />
   <input type="hidden" name="init" value="true" />
   <button class="btn btn-primary" type="submit">Let's start.</button>
   </form>
