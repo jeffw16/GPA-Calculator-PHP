@@ -26,114 +26,23 @@ if ( $_REQUEST['submit'] ) {
 			We understand you may have a higher/lower than expected average, but it should be pushed down to 100 or up to 0.";
 			die();
 		}
-		if ( $_REQUEST[gpa . $i] == 4 ) {
-			switch ( $dividendpregpa ) {
-				case ( '100' ): $dividend += 4.0; break;
-				case ( '99' ): $dividend += 3.9; break;
-				case ( '98' ): $dividend += 3.8; break;
-				case ( '97' ): $dividend += 3.7; break;
-				case ( '96' ): $dividend += 3.6; break;
-				case ( '95' ): $dividend += 3.5; break;
-				case ( '94' ): $dividend += 3.4; break;
-				case ( '93' ): $dividend += 3.3; break;
-				case ( '92' ): $dividend += 3.2; break;
-				case ( '91' ): $dividend += 3.1; break;
-				case ( '90' ): $dividend += 3.0; break;
-				case ( '89' ): $dividend += 2.9; break;
-				case ( '88' ): $dividend += 2.8; break;
-				case ( '87' ): $dividend += 2.7; break;
-				case ( '86' ): $dividend += 2.6; break;
-				case ( '85' ): $dividend += 2.5; break;
-				case ( '84' ): $dividend += 2.4; break;
-				case ( '83' ): $dividend += 2.3; break;
-				case ( '82' ): $dividend += 2.2; break;
-				case ( '81' ): $dividend += 2.1; break;
-				case ( '80' ): $dividend += 2.0; break;
-				case ( '79' ): $dividend += 1.9; break;
-				case ( '78' ): $dividend += 1.8; break;
-				case ( '77' ): $dividend += 1.7; break;
-				case ( '76' ): $dividend += 1.6; break;
-				case ( '75' ): $dividend += 1.5; break;
-				case ( '74' ): $dividend += 1.4; break;
-				case ( '73' ): $dividend += 1.3; break;
-				case ( '72' ): $dividend += 1.2; break;
-				case ( '71' ): $dividend += 1.1; break;
-				case ( '70' ): $dividend += 1.0; break;
-				default: $dividend += 0.0; break;
-			}
+		//Failing does not set GPA to Zero!!! 61 would be 0.1
+		$dividendpregpa-=60; //100 will be 40
+		if($dividendprega<0) //makes so no negative Grades
+		{
+			$dividendprega=0;
 		}
-		if ( $_REQUEST[gpa . $i] == 5 ) {
-			switch ( $dividendpregpa ) {
-				case ( '100' ): $dividend += 5.0; break;
-				case ( '99' ): $dividend += 4.9; break;
-				case ( '98' ): $dividend += 4.8; break;
-				case ( '97' ): $dividend += 4.7; break;
-				case ( '96' ): $dividend += 4.6; break;
-				case ( '95' ): $dividend += 4.5; break;
-				case ( '94' ): $dividend += 4.4; break;
-				case ( '93' ): $dividend += 4.4; break;
-				case ( '92' ): $dividend += 4.2; break;
-				case ( '91' ): $dividend += 4.1; break;
-				case ( '90' ): $dividend += 4.0; break;
-				case ( '89' ): $dividend += 3.9; break;
-				case ( '88' ): $dividend += 3.8; break;
-				case ( '87' ): $dividend += 3.7; break;
-				case ( '86' ): $dividend += 3.6; break;
-				case ( '85' ): $dividend += 3.5; break;
-				case ( '84' ): $dividend += 3.4; break;
-				case ( '83' ): $dividend += 3.3; break;
-				case ( '82' ): $dividend += 3.3; break;
-				case ( '81' ): $dividend += 3.1; break;
-				case ( '80' ): $dividend += 3.0; break;
-				case ( '79' ): $dividend += 2.9; break;
-				case ( '78' ): $dividend += 2.8; break;
-				case ( '77' ): $dividend += 2.7; break;
-				case ( '76' ): $dividend += 2.6; break;
-				case ( '75' ): $dividend += 2.5; break;
-				case ( '74' ): $dividend += 2.4; break;
-				case ( '73' ): $dividend += 2.3; break;
-				case ( '72' ): $dividend += 2.2; break;
-				case ( '71' ): $dividend += 2.2; break;
-				case ( '70' ): $dividend += 2.0; break;
-				default: $dividend += 0.0; break;
-			}
+		
+		$gpaForClass=$dividendprega/10;
+		
+		if ( $_REQUEST[gpa . $i] == 5 ) { 
+			$gpaForClass+=1.0;
 		}
 		if ( $_REQUEST[gpa . $i] == 6 ) {
-			switch ( $dividendpregpa ) {
-				case ( '100' ): $dividend += 6.0; break;
-				case ( '99' ): $dividend += 5.9; break;
-				case ( '98' ): $dividend += 5.8; break;
-				case ( '97' ): $dividend += 5.7; break;
-				case ( '96' ): $dividend += 5.6; break;
-				case ( '95' ): $dividend += 5.5; break;
-				case ( '94' ): $dividend += 5.5; break;
-				case ( '93' ): $dividend += 5.5; break;
-				case ( '92' ): $dividend += 5.2; break;
-				case ( '91' ): $dividend += 5.1; break;
-				case ( '90' ): $dividend += 5.0; break;
-				case ( '89' ): $dividend += 4.9; break;
-				case ( '88' ): $dividend += 4.8; break;
-				case ( '87' ): $dividend += 4.7; break;
-				case ( '86' ): $dividend += 4.6; break;
-				case ( '85' ): $dividend += 4.5; break;
-				case ( '84' ): $dividend += 4.4; break;
-				case ( '83' ): $dividend += 4.4; break;
-				case ( '82' ): $dividend += 4.4; break;
-				case ( '81' ): $dividend += 4.1; break;
-				case ( '80' ): $dividend += 4.0; break;
-				case ( '79' ): $dividend += 3.9; break;
-				case ( '78' ): $dividend += 3.8; break;
-				case ( '77' ): $dividend += 3.7; break;
-				case ( '76' ): $dividend += 3.6; break;
-				case ( '75' ): $dividend += 3.5; break;
-				case ( '74' ): $dividend += 3.4; break;
-				case ( '73' ): $dividend += 3.3; break;
-				case ( '72' ): $dividend += 3.3; break;
-				case ( '71' ): $dividend += 3.3; break;
-				case ( '70' ): $dividend += 3.0; break;
-				default: $dividend += 0.0; break;
-			}
+			$gpaForClass+=2.0;
 		}
+		
+		$dividend+=$gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
 	?>
