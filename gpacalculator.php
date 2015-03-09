@@ -21,11 +21,17 @@ if ( $_REQUEST['submit'] ) {
 	for ( $i = 1; $i <= 7; $i++ ) {
 		$dividendpregpa = "" + $_REQUEST[answers . $i];
 		//$dividend += $_REQUEST[exam . $i] / 7;
-		if ( $dividendpregpa > 100 || $dividendpregpa < 0 ) {
-			echo "We're terribly sorry, but your grade must be between 0 and 100, and it is not, and therefore we cannot process your grade.
-			We understand you may have a higher/lower than expected average, but it should be pushed down to 100 or up to 0.";
-			die();
+		
+		
+		if ( $dividendpregpa > 100) {
+			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
+			$dividendpregpa=100;
 		}
+		if ( $dividendpregpa < 0) {
+			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
+			$dividendpregpa=0;
+		}
+		
 		//Failing does not set GPA to Zero!!! 61 would be 0.1
 		$dividendpregpa-=60; //100 will be 40
 		if($dividendprega<0) //makes so no negative Grades
