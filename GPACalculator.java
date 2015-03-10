@@ -13,7 +13,7 @@ public class GPACalculator {
   // instance variables
   private double dividend = 0.0;
   private double quotient;
-  private final double divisor;
+  private double divisor;
   private double[] rawGrades;
   private int[] gpamax;
   
@@ -50,13 +50,15 @@ public class GPACalculator {
   // methods
   public void calculateGPA () {
     // to be added soon
-    for ( int i = 0; i < divisor; i++ ) {
+    for ( int i = 1; i <= divisor; i++ ) {
       double pregrade = rawGrades[i];
       if ( pregrade > 100 ) {
         System.out.println ( "Grades over 100 are set to 100 automatically." );
+        pregrade = 100;
       }
       if ( pregrade < 0 ) {
         System.out.println ( "Grades less than 0 are set to 0 automatically." );
+        pregrade = 0;
       }
       
       double midgrade = pregrade - 60;
@@ -85,8 +87,8 @@ public class GPACalculator {
     System.out.println ( "GPA Calculator\nby Jeffrey Wang" );
     System.out.println ( "How many classes do you have?" );
     int classcount = s.nextInt();
-    double[] grades = new double[classcount];
-    int[] gpamax = new int[classcount];
+    double[] grades = new double[classcount+1];
+    int[] gpamax = new int[classcount+1];
     for ( int i = 1; i <= classcount; i++ ) {
       System.out.println ( "Grade for class " + i + ": " );
       grades[i] = s.nextDouble();
