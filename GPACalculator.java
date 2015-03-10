@@ -19,7 +19,7 @@ public class GPACalculator {
   
   // constructors
   public GPACalculator ( double[] rawGrades, int[] gpamax ) {
-    this.divisor = rawGrades.length;
+    this.divisor = rawGrades.length-1;
     this.rawGrades = rawGrades;
     this.gpamax = gpamax;
   }
