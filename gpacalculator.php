@@ -4,7 +4,7 @@
  * GPA Calculator (Weighted)
  * @author Jeffrey Wang
  * @contributors CJ Duffee
- * @license GNU License 2.0 (Because GitHub forced me to do so)
+ * @license None
 */
 ?>
 <html lang="en">
