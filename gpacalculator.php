@@ -20,17 +20,18 @@ if ( $_REQUEST['submit'] ) {
 	$dividend = 0.0;
 	$divisor = $_REQUEST['numberofclasses'];
 	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; ++$i ) {
+		$addMoreToGPA = 0;
 		if ( $_REQUEST[gpa . $i] == "core" ) {
-			$addMoreToGPA = $_REQUEST['gpamaxcore'] - 4;
+			$addMoreToGPA = ( $_REQUEST['gpamaxcore'] - 4.0 );
 		} elseif ( $_REQUEST[gpa . $i] == "honors" ) {
-			$addMoreToGPA = $_REQUEST['gpamaxhonors'] - 4;
+			$addMoreToGPA = ( $_REQUEST['gpamaxhonors'] - 4.0 );
 		} elseif ( $_REQUEST[gpa . $i] == "ap" ) {
-			$addMoreToGPA = $_REQUEST['gpamaxap'] - 4;
+			$addMoreToGPA = ( $_REQUEST['gpamaxap'] - 4.0 );
 		} else {
 			echo "ERROR: Unspecified GPA type.";
 			die ();
 		}
-		$dividendpregpa = "" + $_REQUEST[answers . $i];
+		$dividendpregpa = $_REQUEST[answers . $i];
 		if ( $dividendpregpa > 100 ) {
 			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
 			$dividendpregpa = 100;
@@ -42,9 +43,6 @@ if ( $_REQUEST['submit'] ) {
 		
 		// Failing does not set GPA to zero! 61 would be 0.1
 		$dividendpregpa -= 60; // 100 will be 40
-		if ( $dividendpregpa < 0 ) { // ensures there are no negative grades
-			$dividendpregpa = 0;
-		}
 		
 		$gpaForClass = $dividendpregpa / 10;
 		$gpaForClass += $addMoreToGPA;
@@ -60,11 +58,11 @@ if ( $_REQUEST['submit'] ) {
 	?>
 	<h2>GPA Calculator</h2>
 	<hr />
+	<form method="post" action="gpacalculator.php">
 	GPA maximum for Core/Regular/Academic classes: <input type="tel" name="gpamaxcore" value="4" /><br />
 	GPA maximum for Honors/Pre-AP&reg;: <input type="tel" name="gpamaxhonors" value="5" /><br />
 	GPA maximum for AP: <input type="tel" name="gpamaxap" value="6" /><br />
 	<hr />
-	<form method="post" action="gpacalculator.php">
 	<?php
 	for ( $i = 1; $i <= $_REQUEST['numofclasses']; $i++ ) {
 		?>
