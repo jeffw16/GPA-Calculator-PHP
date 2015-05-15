@@ -66,9 +66,7 @@ if ( $_REQUEST['submit'] ) {
 	<?php
 	for ( $i = 1; $i <= $_REQUEST['numofclasses']; $i++ ) {
 		?>
-		<!--Class name <?php echo $i; ?>: <input type="text" name="name<?php echo $i; ?>" /></br >-->
-		Grade in class <?php echo $i; ?>: <input type="tel" name="answers<?php echo $i; ?>" /> GPA scale: <select name="gpa<?php echo $i; ?>"><option value="core">4.0 (Core/Regular/Academic)</option><option value="honors">5.0 (Honors/Pre-AP&reg;)</option><option value="ap">6.0 (AP)</option></select><br />
-		<!--Class semester/final exam in GPA format <?php echo $i; ?>: <input type="text" name="exam<?php echo $i; ?>" /><br />-->
+		Final grade in class <?php echo $i; ?>: <input type="tel" name="answers<?php echo $i; ?>" /> GPA scale: <select name="gpa<?php echo $i; ?>"><option value="core">4.0 (Core/Regular/Academic)</option><option value="honors">5.0 (Honors/Pre-AP&reg;)</option><option value="ap">6.0 (AP)</option></select><br />
 	<?php
 	}
 	?>
