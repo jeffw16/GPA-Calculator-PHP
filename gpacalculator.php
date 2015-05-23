@@ -54,7 +54,7 @@ if ( $_REQUEST['submit'] ) {
 	<hr />
 	<p>Your GPA is <b><?php echo $quotient; ?></b>.</p>
 	<?php
-} elseif ( $_REQUEST['init'] == true ) {
+} elseif ( $_REQUEST['init'] ) {
 	?>
 	<h2>GPA Calculator</h2>
 	<hr />
