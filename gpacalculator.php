@@ -4,7 +4,7 @@
  * GPA Calculator (Weighted)
  * @author Jeffrey Wang
  * @contributors CJ Duffee
- * @license UNLICENSE (Public Domain)
+ * @license http://central.mywikis.com/wiki/MyWikis_License
 */
 ?>
 <!DOCTYPE html>
