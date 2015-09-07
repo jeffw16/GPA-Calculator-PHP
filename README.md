@@ -7,3 +7,6 @@ Of course, you can always use our ad-free hosted website at https://www.mywikis.
 
 ## Requirements
 * For PHP: We recommend PHP 5.3 and up (who doesn't?), as well as Apache. These are the settings with which we tested the software, but YMMV. (Your mileage may vary.)
+
+## License
+GPA-Calculator is available under the MyWikis License, available at http://central.mywikis.com/wiki/MyWikis_License.
