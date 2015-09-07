@@ -79,8 +79,8 @@ if ( $_REQUEST['submit'] ) {
 	</form>
 	<hr />
 	<p>We do not log your data.</p>
-	<p>An example of GPA format: 95 in 4.0 class is "3.5", 98 in 5.0 class is "4.8", 97 in 6.0 class is "5.7".</p>
-	<p><b>Hint:</b> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
+	<p>An example of GPA format: 95% in 4.0 class is "3.5", 98% in 5.0 class is "4.8", 97% in 6.0 class is "5.7".</p>
+	<p><strong>Hint:</strong> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
 	<?php
 } else {
   ?>
