@@ -64,8 +64,8 @@ if ( $_REQUEST['submit'] ) {
 	<hr />
 	<form method="post" action="gpacalculator.php">
 	GPA maximum for Core/Regular/Academic classes: <input type="number" step="0.1" name="gpamaxcore" value="4.0" /><br />
-	GPA maximum for Honors/Pre-AP &reg;: <input type="number" step="0.1" name="gpamaxhonors" value="5.0" /><br />
-	GPA maximum for AP &reg;: <input type="number" step="0.1" name="gpamaxap" value="6.0" /><br />
+	GPA maximum for Honors/Pre-AP&reg;: <input type="number" step="0.1" name="gpamaxhonors" value="5.0" /><br />
+	GPA maximum for AP&reg;: <input type="number" step="0.1" name="gpamaxap" value="6.0" /><br />
 	<hr />
 	<?php
 	for ( $i = 1; $i <= $_REQUEST['numofclasses']; $i++ ) {
