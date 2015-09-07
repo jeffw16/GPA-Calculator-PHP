@@ -4,9 +4,10 @@
  * GPA Calculator (Weighted)
  * @author Jeffrey Wang
  * @contributors CJ Duffee
- * @license None
+ * @license http://central.mywikis.com/wiki/MyWikis_License
 */
 ?>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>GPA Calculator by MyWikis</title>
@@ -46,6 +47,9 @@ if ( $_REQUEST['submit'] ) {
 		
 		$gpaForClass = $dividendpregpa / 10;
 		$gpaForClass += $addMoreToGPA;
+		if($gpaForClass<0) {
+			$gpaForClass=0;
+		}
 		$dividend += $gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
@@ -59,9 +63,9 @@ if ( $_REQUEST['submit'] ) {
 	<h2>GPA Calculator</h2>
 	<hr />
 	<form method="post" action="gpacalculator.php">
-	GPA maximum for Core/Regular/Academic classes: <input type="tel" name="gpamaxcore" value="4" /><br />
-	GPA maximum for Honors/Pre-AP&reg;: <input type="tel" name="gpamaxhonors" value="5" /><br />
-	GPA maximum for AP: <input type="tel" name="gpamaxap" value="6" /><br />
+	GPA maximum for Core/Regular/Academic classes: <input type="number" step="0.1" name="gpamaxcore" value="4.0" /><br />
+	GPA maximum for Honors/Pre-AP&reg;: <input type="number" step="0.1" name="gpamaxhonors" value="5.0" /><br />
+	GPA maximum for AP&reg;: <input type="number" step="0.1" name="gpamaxap" value="6.0" /><br />
 	<hr />
 	<?php
 	for ( $i = 1; $i <= $_REQUEST['numofclasses']; $i++ ) {
@@ -76,8 +80,8 @@ if ( $_REQUEST['submit'] ) {
 	</form>
 	<hr />
 	<p>We do not log your data.</p>
-	<p>An example of GPA format: 95 in 4.0 class is "3.5", 98 in 5.0 class is "4.8", 97 in 6.0 class is "5.7".</p>
-	<p><b>Hint:</b> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
+	<p>An example of GPA format: 95% in 4.0 class is "3.5", 98% in 5.0 class is "4.8", 97% in 6.0 class is "5.7".</p>
+	<p><strong>Hint:</strong> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
 	<?php
 } else {
   ?>
