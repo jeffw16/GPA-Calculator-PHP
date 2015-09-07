@@ -46,6 +46,9 @@ if ( $_REQUEST['submit'] ) {
 		
 		$gpaForClass = $dividendpregpa / 10;
 		$gpaForClass += $addMoreToGPA;
+		if($gpaForClass<0) {
+			$gpaForClass=0;
+		}
 		$dividend += $gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
