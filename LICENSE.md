@@ -1,16 +1,1 @@
-A. At ALL times, the license is subject to the MyWikis Terms of Service and Privacy Policy, whenever applicable, (http://www.mywikis.com/terms).
-B. The license is based off of the Creative Commons Attribution-ShareAlike 3.0 license (listed here) except for the following changes listed in all below subsections:
-C.
-MyWikis perpetually shall be listed as the publishers of the content. The users who made it shall be also listed as authors.
-If a dispute over licensing of content arises, MyWikis shall prevail in their decision.
-Mass amounts of content (more than 20% of the wiki's content in pages in the main namespace) may not be exported or used unless the community agrees by consensus and MyWikis approves, or MyWikis alone approves with reasonable grounds, without malicious intent. This is to prevent the "Wikia-book" incident happening again.
-This license shall take effect on Friday, 28 June 2013 at 12:00 AM (00:00) Central Daylight Time. Before that, wiki content shall still be considered fully copyrighted material by MyWikis and owned by MyWikis.
-D. This license shall perpetually remain in effect unless MyWikis replaces this license with another. In that case, the license shall reasonably transition to the next license.
-E. MyWikis has the right to change this license at any time, without warning whatsoever. It is up to the user to inspect the "View history" tab of the license page (located at http://central.mywikis.com/wiki/MyWikis_License) to analyze the time of change and compare versions.
-F. If a user has made a contract with authorized MyWikis Staff (as determined by top-level executives) to not use the MyWikis License, then this license is null and invalid to whatever entities it supersedes.
-G. If one is banned from any MyWikis service, product, or wiki by a MyWikis Staff member, their edits and content are hereby forever under control by MyWikis's Intellectual Property Management division. Edits may be put in the public domain if declared so by an authorized MyWikis Staff member by a top-level executive.
-H. If one transfers to MyWikis, their license will be switched to a MyWikis License, for all new content and intellectual property, and, if possible, for all previous content and intellectual property.
-I. If one transfers away from MyWikis, their content shall be perpetually attributed to MyWikis and the respective author of said content as co-authors, unless exempted from doing so by authorized MyWikis Staff by a top-level executive.
-J. Wikis hosted by MyWikis which do not include a notice at the bottom explaining that "Content is available under MyWikis License unless otherwise noted" do not use the MyWikis License. These wikis are probably copyrighted fully and owned by MyWikis.
-K. Violation of this license will result in a fine of $100 to the violator, as well as a 120% fine of whatever money or compensation the violator earned from selling, trading, bartering, or any other form of exchange to MyWikis within 30 days of a notice of copyright violation given by MyWikis or authorized representatives and/or a DMCA notice filed by MyWikis or authorized representatives and/or a cease and desist made by MyWikis or authorized representatives.
-L. MyWikis will only use the content dispute resolution clause (Section C, Subsection 2) in good will.
+http://central.mywikis.com/wiki/MyWikis_License
