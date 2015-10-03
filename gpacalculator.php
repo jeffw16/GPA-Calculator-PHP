@@ -108,6 +108,8 @@ if ( $_REQUEST['submit'] ) {
 	<p>Your unweighted GPA is <b><?php echo $uquotient; ?></b>.</p>
 	<p>Your rounded unweighted GPA is <b><?php echo $urquotient; ?></b>.</p>
 	<hr />
+	<a class="btn btn-primary" href="gpacalculator.php">Start over</a>
+	<hr />
 	<h3>Class-by-class analysis</h3>
 	<table class="table table-striped table-hover table-condensed">
 		<thead>
@@ -142,6 +144,34 @@ if ( $_REQUEST['submit'] ) {
 			?>
 		</tbody>
 	</table>
+	<hr />
+	<h3>Export data</h3>
+	<button class="btn btn-default" id="ctc" data-clipboard-target="copythis"><span class="glyphicon glyphicon-copy"></span> Copy the below CSV</button>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.js"></script>
+	<script type="text/javascript">
+		var client = new ZeroClipboard( document.getElementById('ctc') );
+	</script>
+	<textarea style="width:100%" rows="<?php echo $_REQUEST['numberofclasses'] + 1; ?>" id="copythis">
+"#","Grade in class","GPA level","Weighted GPA","Unweighted GPA","Rounded unweighted GPA"
+<?php
+	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; $i++ ) {
+		if ( $_REQUEST[gpa . $i] == "core" ) {
+			$gpamaxnum = $_REQUEST['gpamaxcore'];
+		} else if ( $_REQUEST[gpa . $i] == "honors" ) {
+			$gpamaxnum = $_REQUEST['gpamaxhonors'];
+		} else if ( $_REQUEST[gpa . $i] == "ap" ) {
+			$gpamaxnum = $_REQUEST['gpamaxap'];
+		}
+		echo "\"" . $i . "\",";
+		echo "\"" . $_REQUEST[answers . $i] . "\",";
+		echo "\"" . $gpamaxnum . "\",";
+		echo "\"" . $perClassGPAs[$i] . "\",";
+		echo "\"" . $uperClassGPAs[$i] . "\",";
+		echo "\"" . $urperClassGPAs[$i] . "\"";
+		echo "\r\n";
+	}
+	?>
+	</textarea>
 	<?php
 } elseif ( $_REQUEST['init'] ) {
 	?>
@@ -181,6 +211,8 @@ if ( $_REQUEST['submit'] ) {
 <?php
 }
 ?>
+		<hr />
+		<p>GPA Calculator made by and &copy; <a href="https://www.mywikis.com/">MyWikis</a>.</p>
 		</div>
 	</body>
 </html>
