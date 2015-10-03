@@ -20,6 +20,7 @@
 if ( $_REQUEST['submit'] ) {
 	$dividend = 0.0;
 	$divisor = $_REQUEST['numberofclasses'];
+	$perClassGPAs = array();
 	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; ++$i ) {
 		$addMoreToGPA = 0;
 		if ( $_REQUEST[gpa . $i] == "core" ) {
@@ -50,11 +51,14 @@ if ( $_REQUEST['submit'] ) {
 			$gpaForClass=0;
 		}
 		$dividend += $gpaForClass;
+		$perClassGPAs[$i] = $gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
 	// Unweighted
 	$udividend = 0.0;
 	$udivisor = $_REQUEST['numberofclasses'];
+	$uperClassGPAs = array();
+	$urperClassGPAs = array();
 	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; ++$i ) {
 		$uaddMoreToGPA = ( $_REQUEST['gpamaxcore'] - 4.0 );
 		$udividendpregpa = $_REQUEST[answers . $i];
@@ -75,6 +79,16 @@ if ( $_REQUEST['submit'] ) {
 			$ugpaForClass=0;
 		}
 		$udividend += $ugpaForClass;
+		$uperClassGPAs[$i] = $ugpaForClass;
+		if ( $ugpaPerClass > 3.0 ) {
+			$urperClassGPAs[$i] = 4.0;
+		} else if ( $ugpaPerClass > 2.0 ) {
+			$urperClassGPAs[$i] = 3.0;
+		} else if ( $ugpaPerClass > 1.0 ) {
+			$urperClassGPAs[$i] = 2.0;
+		} else if ( $ugpaPerClass > 0.0 ) {
+			$urperClassGPAs[$i] = 1.0;
+		}
 	}
 	$uquotient = $udividend / $udivisor;
 	$urquotient = 0;
@@ -92,7 +106,29 @@ if ( $_REQUEST['submit'] ) {
 	<hr />
 	<p>Your weighted GPA is <b><?php echo $quotient; ?></b>.</p>
 	<p>Your unweighted GPA is <b><?php echo $uquotient; ?></b>.</p>
-	<p>Your rounded unweighted GPA is <b><?php echo $urquotient; ?></b></p>
+	<p>Your rounded unweighted GPA is <b><?php echo $urquotient; ?></b>.</p>
+	<hr />
+	<b>Grade analysis</b>
+	<table>
+		<tr>
+			<th>#</th>
+			<th>Grade in class</th>
+			<th>Weighted GPA</th>
+			<th>Unweighted GPA</th>
+			<th>Rounded unweighted GPA</th>
+		</tr>
+		<?php
+		for ( $i = 1; $i < = $_REQUEST['numberofclasses']; $i++ ) {
+			echo "<tr>";
+				echo "<td>" . $i . "</td>";
+				echo "<td>" . $_REQUEST[gpa . $i] . "</td>";
+				echo "<td>" . $perClassGPAs[$i] . "</td>";
+				echo "<td>" . $uperClassGPAs[$i] . "</td>";
+				echo "<td>" . $urperClassGPAs[$i] . "</td>";
+			echo "</tr>";
+		}
+		?>
+	</table>
 	<?php
 } elseif ( $_REQUEST['init'] ) {
 	?>
