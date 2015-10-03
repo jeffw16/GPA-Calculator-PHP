@@ -80,11 +80,11 @@ if ( $_REQUEST['submit'] ) {
 		}
 		$udividend += $ugpaForClass;
 		$uperClassGPAs[$i] = $ugpaForClass;
-		if ( $ugpaForClass > 3.0 ) {
+		if ( $ugpaForClass >= 3.0 ) {
 			$urperClassGPAs[$i] = 4.0;
-		} else if ( $ugpaForClass > 2.0 ) {
+		} else if ( $ugpaForClass >= 2.0 ) {
 			$urperClassGPAs[$i] = 3.0;
-		} else if ( $ugpaForClass > 1.0 ) {
+		} else if ( $ugpaForClass >= 1.0 ) {
 			$urperClassGPAs[$i] = 2.0;
 		} else if ( $ugpaForClass > 0.0 ) {
 			$urperClassGPAs[$i] = 1.0;
@@ -92,11 +92,11 @@ if ( $_REQUEST['submit'] ) {
 	}
 	$uquotient = $udividend / $udivisor;
 	$urquotient = 0;
-	if ( $uquotient > 3.0 ) {
+	if ( $uquotient >= 3.0 ) {
 		$urquotient = 4.0;
-	} else if ( $uquotient > 2.0 ) {
+	} else if ( $uquotient >= 2.0 ) {
 		$urquotient = 3.0;
-	} else if ( $uquotient > 1.0 ) {
+	} else if ( $uquotient >= 1.0 ) {
 		$urquotient = 2.0;
 	} else if ( $uquotient > 0.0 ) {
 		$urquotient = 1.0;
