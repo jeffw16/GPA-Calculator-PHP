@@ -1,7 +1,7 @@
 <?php
 /**
  * MyWikis
- * GPA Calculator (Weighted)
+ * GPA Calculator (Weighted and Unweighted)
  * @author Jeffrey Wang
  * @contributors CJ Duffee
  * @license http://central.mywikis.com/wiki/MyWikis_License
@@ -41,22 +41,58 @@ if ( $_REQUEST['submit'] ) {
 			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
 			$dividendpregpa = 0;
 		}
-		
 		// Failing does not set GPA to zero! 61 would be 0.1
 		$dividendpregpa -= 60; // 100 will be 40
 		
 		$gpaForClass = $dividendpregpa / 10;
 		$gpaForClass += $addMoreToGPA;
-		if($gpaForClass<0) {
+		if ( $gpaForClass < 0 ) {
 			$gpaForClass=0;
 		}
 		$dividend += $gpaForClass;
 	}
 	$quotient = $dividend / $divisor;
+	// Unweighted
+	$udividend = 0.0;
+	$udivisor = $_REQUEST['numberofclasses'];
+	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; ++$i ) {
+		$uaddMoreToGPA = ( $_REQUEST['gpamaxcore'] - 4.0 );
+		$udividendpregpa = $_REQUEST[answers . $i];
+		if ( $udividendpregpa > 100 ) {
+			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
+			$udividendpregpa = 100;
+		}
+		if ( $udividendpregpa < 0 ) {
+			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
+			$udividendpregpa = 0;
+		}
+		// Failing does not set GPA to zero! 61 would be 0.1
+		$udividendpregpa -= 60; // 100 will be 40
+		
+		$ugpaForClass = $udividendpregpa / 10;
+		$ugpaForClass += $uaddMoreToGPA;
+		if ( $ugpaForClass < 0 ) {
+			$ugpaForClass=0;
+		}
+		$udividend += $ugpaForClass;
+	}
+	$uquotient = $udividend / $udivisor;
+	$urquotient = 0;
+	if ( $uquotient > 3.0 ) {
+		$urquotient = 4.0;
+	} else if ( $uquotient > 2.0 ) {
+		$urquotient = 3.0;
+	} else if ( $uquotient > 1.0 ) {
+		$urquotient = 2.0;
+	} else if ( $uquotient > 0.0 ) {
+		$urquotient = 1.0;
+	}
 	?>
 	<h2>GPA Calculator</h2>
 	<hr />
-	<p>Your GPA is <b><?php echo $quotient; ?></b>.</p>
+	<p>Your weighted GPA is <b><?php echo $quotient; ?></b>.</p>
+	<p>Your unweighted GPA is <b><?php echo $uquotient; ?></b>.</p>
+	<p>Your rounded unweighted GPA is <b><?php echo $urquotient; ?></b></p>
 	<?php
 } elseif ( $_REQUEST['init'] ) {
 	?>
@@ -65,12 +101,12 @@ if ( $_REQUEST['submit'] ) {
 	<form method="post" action="gpacalculator.php">
 	GPA maximum for Core/Regular/Academic classes: <input type="number" step="0.1" name="gpamaxcore" value="4.0" /><br />
 	GPA maximum for Honors/Pre-AP&reg;: <input type="number" step="0.1" name="gpamaxhonors" value="5.0" /><br />
-	GPA maximum for AP&reg;: <input type="number" step="0.1" name="gpamaxap" value="6.0" /><br />
+	GPA maximum for Advanced/AP&reg;: <input type="number" step="0.1" name="gpamaxap" value="6.0" /><br />
 	<hr />
 	<?php
 	for ( $i = 1; $i <= $_REQUEST['numofclasses']; $i++ ) {
 		?>
-		Final grade in class <?php echo $i; ?>: <input type="tel" name="answers<?php echo $i; ?>" /> GPA scale: <select name="gpa<?php echo $i; ?>"><option value="core">Core/Regular/Academic</option><option value="honors">Honors/Pre-AP&reg;</option><option value="ap">AP</option></select><br />
+		Final grade in class <?php echo $i; ?>: <input type="tel" name="answers<?php echo $i; ?>" /> GPA scale: <select name="gpa<?php echo $i; ?>"><option value="core">Core/Regular/Academic</option><option value="honors">Honors/Pre-AP&reg;</option><option value="ap">Advanced/AP&reg;</option></select><br />
 	<?php
 	}
 	?>
@@ -81,6 +117,7 @@ if ( $_REQUEST['submit'] ) {
 	<hr />
 	<p>We do not log your data.</p>
 	<p>An example of GPA format: 95% in 4.0 class is "3.5", 98% in 5.0 class is "4.8", 97% in 6.0 class is "5.7".</p>
+	<p>Failing in some places means your GPA in the class is ZERO. To get accurate GPAs, just put in a "0" for that class.</p>
 	<p><b>Hint:</b> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
 	<?php
 } else {
