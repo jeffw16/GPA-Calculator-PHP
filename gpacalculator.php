@@ -80,13 +80,13 @@ if ( $_REQUEST['submit'] ) {
 		}
 		$udividend += $ugpaForClass;
 		$uperClassGPAs[$i] = $ugpaForClass;
-		if ( $ugpaPerClass > 3.0 ) {
+		if ( $ugpaForClass > 3.0 ) {
 			$urperClassGPAs[$i] = 4.0;
-		} else if ( $ugpaPerClass > 2.0 ) {
+		} else if ( $ugpaForClass > 2.0 ) {
 			$urperClassGPAs[$i] = 3.0;
-		} else if ( $ugpaPerClass > 1.0 ) {
+		} else if ( $ugpaForClass > 1.0 ) {
 			$urperClassGPAs[$i] = 2.0;
-		} else if ( $ugpaPerClass > 0.0 ) {
+		} else if ( $ugpaForClass > 0.0 ) {
 			$urperClassGPAs[$i] = 1.0;
 		}
 	}
@@ -108,26 +108,39 @@ if ( $_REQUEST['submit'] ) {
 	<p>Your unweighted GPA is <b><?php echo $uquotient; ?></b>.</p>
 	<p>Your rounded unweighted GPA is <b><?php echo $urquotient; ?></b>.</p>
 	<hr />
-	<b>Grade analysis</b>
-	<table>
-		<tr>
-			<th>#</th>
-			<th>Grade in class</th>
-			<th>Weighted GPA</th>
-			<th>Unweighted GPA</th>
-			<th>Rounded unweighted GPA</th>
-		</tr>
-		<?php
-		for ( $i = 1; $i < = $_REQUEST['numberofclasses']; $i++ ) {
-			echo "<tr>";
-				echo "<td>" . $i . "</td>";
-				echo "<td>" . $_REQUEST[gpa . $i] . "</td>";
-				echo "<td>" . $perClassGPAs[$i] . "</td>";
-				echo "<td>" . $uperClassGPAs[$i] . "</td>";
-				echo "<td>" . $urperClassGPAs[$i] . "</td>";
-			echo "</tr>";
-		}
-		?>
+	<h3>Class-by-class analysis</h3>
+	<table class="table table-striped table-hover table-condensed">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Grade in class</th>
+				<th>GPA level</th>
+				<th>Weighted GPA</th>
+				<th>Unweighted GPA</th>
+				<th>Rounded unweighted GPA</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			for ( $i = 1; $i <= $_REQUEST['numberofclasses']; $i++ ) {
+				if ( $_REQUEST[gpa . $i] == "core" ) {
+					$gpamaxnum = $_REQUEST['gpamaxcore'];
+				} else if ( $_REQUEST[gpa . $i] == "honors" ) {
+					$gpamaxnum = $_REQUEST['gpamaxhonors'];
+				} else if ( $_REQUEST[gpa . $i] == "ap" ) {
+					$gpamaxnum = $_REQUEST['gpamaxap'];
+				}
+				echo "<tr>";
+					echo "<td>" . $i . "</td>";
+					echo "<td>" . $_REQUEST[answers . $i] . "</td>";
+					echo "<td>" . $gpamaxnum . "</td>";
+					echo "<td>" . $perClassGPAs[$i] . "</td>";
+					echo "<td>" . $uperClassGPAs[$i] . "</td>";
+					echo "<td>" . $urperClassGPAs[$i] . "</td>";
+				echo "</tr>";
+			}
+			?>
+		</tbody>
 	</table>
 	<?php
 } elseif ( $_REQUEST['init'] ) {
