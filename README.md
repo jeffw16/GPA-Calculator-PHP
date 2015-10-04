@@ -5,8 +5,40 @@ We also have a Java version that works well and an experimental Python version t
 
 Of course, you can always use our ad-free hosted website at https://www.mywikis.com/products/srcbin/gpacalculator.php for absolutely no charge!
 
+## Features
+* Flexible class amounts
+* Flexible GPA weights (e.g. Some school districts' Honors classes are worth 4.5, not 5.0)
+* Built-in value failsafe checks
+* Three types of GPAs
+ * Weighted GPAs
+ * Unweighted GPAs
+ * Rounded unweighted GPAs
+* Class-by-class analysis table
+* Quick CSV export
+* Everything just works within ONE file
+
+### Upcoming features
+These features may not necessarily be implemented.
+* Support high school AND college GPAs' calculation methods
+* Downloadable CSV generator
+* Four year planning
+* GPA exempted classes
+* Preset settings
+
+### Dreams
+These dreams may never come to fruition because of their deviation from the purpose of GPA Calculator.
+* Account system
+* Unofficial class rank keeper for each school
+
 ## Requirements
-* For PHP: We recommend PHP 5.3 and up (who doesn't?), as well as Apache. These are the settings with which we tested the software, but YMMV. (Your mileage may vary.)
+* PHP: We recommend PHP 5.3 and up (who doesn't?)
+* Apache
+
+These are the settings with which we tested the software, but YMMV. (Your mileage may vary.)
+
+## Install
+1. Add this PHP file to anywhere you want that works with PHP. The file name CANNOT be renamed or it WILL break.
+2. Use it. This script is literally zero-config.
 
 ## License
-GPA-Calculator is available under the MyWikis License, available at http://central.mywikis.com/wiki/MyWikis_License.
+GPA Calculator is available under the MyWikis License, available at https://www.mywikis.com/mywikislicense.
