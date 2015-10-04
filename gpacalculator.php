@@ -57,6 +57,7 @@ if ( $_REQUEST['submit'] ) {
 	// Unweighted
 	$udividend = 0.0;
 	$udivisor = $_REQUEST['numberofclasses'];
+	$urdividend = 0.0;
 	$uperClassGPAs = array();
 	$urperClassGPAs = array();
 	for ( $i = 1; $i <= $_REQUEST['numberofclasses']; ++$i ) {
@@ -89,18 +90,10 @@ if ( $_REQUEST['submit'] ) {
 		} else if ( $ugpaForClass > 0.0 ) {
 			$urperClassGPAs[$i] = 1.0;
 		}
+		$urdividend += $urperClassGPAs[$i];
 	}
 	$uquotient = $udividend / $udivisor;
-	$urquotient = 0;
-	if ( $uquotient >= 3.0 ) {
-		$urquotient = 4.0;
-	} else if ( $uquotient >= 2.0 ) {
-		$urquotient = 3.0;
-	} else if ( $uquotient >= 1.0 ) {
-		$urquotient = 2.0;
-	} else if ( $uquotient > 0.0 ) {
-		$urquotient = 1.0;
-	}
+	$urquotient = $urdividend / $udivisor;
 	?>
 	<h2>GPA Calculator</h2>
 	<hr />
