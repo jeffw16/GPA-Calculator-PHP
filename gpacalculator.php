@@ -30,16 +30,16 @@ if ( $_REQUEST['submit'] ) {
 		} elseif ( $_REQUEST[gpa . $i] == "ap" ) {
 			$addMoreToGPA = ( $_REQUEST['gpamaxap'] - 4.0 );
 		} else {
-			echo "ERROR: Unspecified GPA type.";
+			echo "<div class=\"alert alert-danger\">Unspecified GPA type.</div>";
 			die ();
 		}
 		$dividendpregpa = $_REQUEST[answers . $i];
 		if ( $dividendpregpa > 100 ) {
-			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
+			echo "<div class=\"alert alert-warning\">GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.</div>";
 			$dividendpregpa = 100;
 		}
 		if ( $dividendpregpa < 0 ) {
-			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
+			echo "<div class=\"alert alert-warning\">GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.</div>";
 			$dividendpregpa = 0;
 		}
 		// Failing does not set GPA to zero! 61 would be 0.1
@@ -48,7 +48,7 @@ if ( $_REQUEST['submit'] ) {
 		$gpaForClass = $dividendpregpa / 10;
 		$gpaForClass += $addMoreToGPA;
 		if ( $gpaForClass < 0 ) {
-			$gpaForClass=0;
+			$gpaForClass = 0;
 		}
 		$dividend += $gpaForClass;
 		$perClassGPAs[$i] = $gpaForClass;
@@ -64,11 +64,9 @@ if ( $_REQUEST['submit'] ) {
 		$uaddMoreToGPA = ( $_REQUEST['gpamaxcore'] - 4.0 );
 		$udividendpregpa = $_REQUEST[answers . $i];
 		if ( $udividendpregpa > 100 ) {
-			echo "GPA grades of greater than 100 do not count for GPA. We automatically set it to 100 for you.";
 			$udividendpregpa = 100;
 		}
 		if ( $udividendpregpa < 0 ) {
-			echo "GPA grades of lower than 0 do not count for GPA. We automatically set it to 0 for you.";
 			$udividendpregpa = 0;
 		}
 		// Failing does not set GPA to zero! 61 would be 0.1
@@ -77,7 +75,7 @@ if ( $_REQUEST['submit'] ) {
 		$ugpaForClass = $udividendpregpa / 10;
 		$ugpaForClass += $uaddMoreToGPA;
 		if ( $ugpaForClass < 0 ) {
-			$ugpaForClass=0;
+			$ugpaForClass = 0;
 		}
 		$udividend += $ugpaForClass;
 		$uperClassGPAs[$i] = $ugpaForClass;
