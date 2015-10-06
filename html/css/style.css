@@ -1,0 +1,12 @@
+.calc-add, .calc-addh button {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+select {
+	color: #fff;
+    background-color: #337ab7;
+}
+.honors-wrapper {
+	padding-bottom:10px;
+}
