@@ -137,7 +137,7 @@ if ( $_REQUEST['submit'] ) {
 	</table>
 	<hr />
 	<h3>Share your GPA</h3>
-	<a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="https://www.mywikis.com/products/srcbin/gpacalculator.php" data-text="I have a <?php echo $quotient; ?> GPA! Calculate yours at bit.ly/gpacalchs!" data-via="mywikis" data-size="large" data-hashtags="GPA" data-dnt="true">Tweet</a>
+	<a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="https://bit.ly/gpacalchs" data-text="I have a <?php printf ( '%.2f', $quotient ); ?> GPA! Calculate yours at" data-via="mywikis" data-size="large" data-hashtags="GPA" data-dnt="true">Tweet</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	<hr />
 	<h3>Export data</h3>
@@ -189,7 +189,7 @@ if ( $_REQUEST['submit'] ) {
 	<button class="btn btn-primary" type="submit">Calculate GPA!</button>
 	</form>
 	<hr />
-	<p>We do not log your data.</p>
+	<p>We do not log your data. Our source code is freely available at <a href="https://github.com/mywikis/GPA-Calculator">our GitHub repository</a>.</p>
 	<p>An example of GPA format: 95% in 4.0 class is "3.5", 98% in 5.0 class is "4.8", 97% in 6.0 class is "5.7".</p>
 	<p>Failing in some places means your GPA in the class is ZERO. To get accurate GPAs, just put in a "0" for that class.</p>
 	<p><b>Hint:</b> Use this form twice; each time for each semester's grades. After that, average the two for your true GPA. This way, you will be able to correctly incorporate your calculations of one-semester courses and semester exams.</p>
