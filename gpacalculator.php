@@ -136,6 +136,10 @@ if ( $_REQUEST['submit'] ) {
 		</tbody>
 	</table>
 	<hr />
+	<h3>Share your GPA</h3>
+	<a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="https://www.mywikis.com/products/srcbin/gpacalculator.php" data-text="I have a <?php echo $quotient; ?> GPA! Calculate yours at bit.ly/gpacalchs!" data-via="mywikis" data-size="large" data-hashtags="GPA" data-dnt="true">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<hr />
 	<h3>Export data</h3>
 	<button class="btn btn-default" id="ctc" data-clipboard-target="copythis"><span class="glyphicon glyphicon-copy"></span> Copy the below CSV</button>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.js"></script>
